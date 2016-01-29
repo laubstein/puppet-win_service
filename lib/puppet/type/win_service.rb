@@ -29,7 +29,7 @@ Puppet::Type.newtype(:win_service) do
     desc "User name that service runs as"
     munge do |value|
       case value
-      when /^\w.+$/
+      when /^(\w|\.\\).+$/
         value
       else
         'LocalSystem'
